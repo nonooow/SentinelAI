@@ -194,12 +194,52 @@ SentinelAI/
 
 ## 🔮 Roadmap
 
-- [ ] Connexion à l'indexer Elasticsearch pour alertes en temps réel
-- [ ] Dashboard web (Flask) avec métriques de sécurité
-- [ ] Notifications automatiques (email/Slack) pour alertes critiques
-- [ ] Rapports de sécurité hebdomadaires en PDF
-- [ ] Corrélation multi-agents pour détecter les attaques distribuées
-- [ ] Intégration du framework MITRE ATT&CK
+### Phase 1 : Connexion aux données réelles (En cours)
+- [ ] **Connexion à l'indexer Elasticsearch** (port 9200) pour récupérer les alertes en temps réel
+- [ ] **Parser les alertes Wazuh** directement depuis l'indexer avec requêtes DSL
+- [ ] **Support multi-agents** : analyser les alertes de plusieurs machines simultanément
+- [ ] **Persistance des analyses** : stocker les résultats dans une base SQLite
+
+### Phase 2 : Interface utilisateur et visualisation
+- [ ] **Dashboard web interactif** (Flask + Chart.js)
+  - Métriques en temps réel : nombre d'alertes par gravité
+  - Graphiques de tendances (dernières 24h, 7 jours, 30 jours)
+  - Top 10 des vulnérabilités détectées
+  - Carte de chaleur des heures d'activité suspecte
+- [ ] **Interface de gestion des alertes** : marquer comme traitée, faux positif, etc.
+- [ ] **Historique des analyses IA** : consulter les anciennes recommandations
+
+### Phase 3 : Automatisation et notifications
+- [ ] **Système de notifications automatiques**
+  - Email pour alertes critiques (niveau ≥ 10)
+  - Intégration Slack/Discord pour alertes en temps réel
+  - SMS via Twilio pour incidents majeurs
+- [ ] **Rapports automatisés**
+  - Rapport de sécurité hebdomadaire en PDF
+  - Statistiques mensuelles avec graphiques
+  - Export CSV pour analyse externe
+- [ ] **Actions automatiques** : bloquer une IP suspecte, isoler un agent compromis
+
+### Phase 4 : Intelligence avancée
+- [ ] **Corrélation multi-sources** : détecter les attaques coordonnées
+  - Exemple : Failed login (PC A) + Port scan (PC B) = Attaque distribuée
+- [ ] **Intégration framework MITRE ATT&CK**
+  - Mapper chaque alerte aux tactiques/techniques MITRE
+  - Générer des kill chains d'attaques
+- [ ] **Machine Learning** : détection d'anomalies comportementales
+  - Baseline du comportement normal de chaque agent
+  - Alertes sur écarts significatifs (nouveau processus, trafic inhabituel)
+- [ ] **Threat Intelligence** : enrichir avec des flux externes
+  - Vérifier les IP suspectes contre des bases de réputation (AbuseIPDB, VirusTotal)
+  - Ajouter le contexte géographique (pays d'origine de l'attaque)
+
+### Phase 5 : Scalabilité et production
+- [ ] **Support de multiples modèles IA** : comparer llama3.2, mistral, deepseek
+- [ ] **Mode API** : exposer SentinelAI comme service REST
+- [ ] **Conteneurisation** : Docker pour SentinelAI lui-même
+- [ ] **CI/CD** : tests automatisés, déploiement continu
+- [ ] **Documentation technique** : API reference, guide d'architecture
+- [ ] **Mode distribué** : analyser 100+ agents avec load balancing
 
 ---
 
