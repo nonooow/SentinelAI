@@ -1,0 +1,20 @@
+# SentinelAI - Dépendances Python
+# Installation : pip install -r requirements.txt
+
+# API HTTP
+requests==2.31.0
+
+# Validation de données
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+# Tests
+pytest==7.4.3
+pytest-cov==4.1.0
+
+# Variables d'environnement
+python-dotenv==1.0.0
+
+# Optionnel : FastAPI si on crée une API
+# fastapi==0.104.1
+# uvicorn[standard]==0.24.0
